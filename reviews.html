@@ -97,38 +97,38 @@
         &copy; 2025 Capital Cravings | Savoring Raleigh, One Bite at a Time
     </footer>
 
-    <script>
-        // Sample reviews data
-        const reviews = [
-
-        ];
-
-        // Function to generate star ratings
-        function getStarRating(rating) {
-            let stars = "⭐".repeat(rating) + "☆".repeat(5 - rating);
-            return `<p><strong>Rating:</strong> ${stars}</p>`;
+ <script>
+    // Sample reviews data
+    const reviews = [
+        {
+            name: "Foxcroft Wine Company",
+            image: "",  // You can add an image URL if needed
+            review: "Click below to read the full review:",
+            link: "https://github.com/Jakedavis26/capital-cravings/blob/main/Foxcroft%20Wine%20Co.pdf"
         }
+    ];
 
-        // Function to dynamically add reviews
-        function displayReviews() {
-            const container = document.getElementById("reviews-container");
-            container.innerHTML = "";
+    // Function to dynamically add reviews
+    function displayReviews() {
+        const container = document.getElementById("reviews-container");
+        container.innerHTML = "";
 
-            reviews.forEach(review => {
-                const reviewElement = `
-                    <div class="review">
-                        <img src="${review.image}" alt="${review.name}">
-                        <h3>${review.name}</h3>
-                        ${getStarRating(review.rating)}
-                        <p>${review.review}</p>
-                    </div>
-                `;
-                container.innerHTML += reviewElement;
-            });
-        }
+        reviews.forEach(review => {
+            const reviewElement = `
+                <div class="review">
+                    ${review.image ? `<img src="${review.image}" alt="${review.name}">` : ""}
+                    <h3>${review.name}</h3>
+                    <p>${review.review}</p>
+                    <a href="${review.link}" target="_blank">Read Full Review (PDF)</a>
+                </div>
+            `;
+            container.innerHTML += reviewElement;
+        });
+    }
 
-        // Load reviews when the page loads
-        document.addEventListener("DOMContentLoaded", displayReviews);
-    </script>
+    // Load reviews when the page loads
+    document.addEventListener("DOMContentLoaded", displayReviews);
+</script>
+
 </body>
 </html>
