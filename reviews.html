@@ -91,43 +91,40 @@
         &copy; 2025 Capital Cravings | Savoring Raleigh, One Bite at a Time
     </footer>
 
- <script>
-    // Sample reviews data
-    const reviews = [
-        {
-            name: "Foxcroft Wine Company",
-            image: "",  // You can add an image URL if needed
-            review: "Click below to read the full review:",
-            <div class="review">
-    <h3>Foxcroft Wine Company</h3>
-    <p>Click below to read the full review:</p>
-    <a href="reviews/Foxcroft_Wine_Co.pdf" target="_blank">Read Full Review (PDF)</a>
-</div>
+    <script>
+        // Sample reviews data
+        const reviews = [
+            {
+                name: "Foxcroft Wine Company",
+                image: "",  // Optional: You can add an image URL if needed
+                review: `
+                    <p>“Foxcroft is on a mission to make wine approachable and enjoyable for everyone. Our highly trained wine savvy staff is eager to guide you toward that perfect bottle to either be enjoyed at home or in our warm and laid back environment”</p>
+                `,
+                link: "reviews/Foxcroft_Wine_Co.pdf"  // Link to a PDF or other resource
+            }
+        ];
 
+        // Function to dynamically add reviews
+        function displayReviews() {
+            const container = document.getElementById("reviews-container");
+            container.innerHTML = "";  // Clear previous content
+
+            reviews.forEach(review => {
+                const reviewElement = `
+                    <div class="review">
+                        ${review.image ? `<img src="${review.image}" alt="${review.name}">` : ""}
+                        <h3>${review.name}</h3>
+                        ${review.review}
+                        <p><a href="${review.link}" target="_blank">Read Full Review (PDF)</a></p>
+                    </div>
+                `;
+                container.innerHTML += reviewElement;
+            });
         }
-    ];
 
-    // Function to dynamically add reviews
-    function displayReviews() {
-        const container = document.getElementById("reviews-container");
-        container.innerHTML = "";
-
-        reviews.forEach(review => {
-            const reviewElement = `
-                <div class="review">
-                    ${review.image ? `<img src="${review.image}" alt="${review.name}">` : ""}
-                    <h3>${review.name}</h3>
-                    <p>${review.review}</p>
-                    <a href="${review.link}" target="_blank">Read Full Review (PDF)</a>
-                </div>
-            `;
-            container.innerHTML += reviewElement;
-        });
-    }
-
-    // Load reviews when the page loads
-    document.addEventListener("DOMContentLoaded", displayReviews);
-</script>
+        // Load reviews when the page loads
+        document.addEventListener("DOMContentLoaded", displayReviews);
+    </script>
 
 </body>
 </html>
