@@ -98,9 +98,9 @@
                 name: "Vic's Italian Restaurant and Pizzeria: City Market",
                 image: "",  // Optional: You can add an image URL if needed
                 review: `
-                    <p>I mean, the paper placemats?  The bread coming out wrapped in tin foil inside a wicker basket?  The murals flanked on either side by wood panel siding?  The Italian music?  What's not to love?</p>
+                    <p>If you value great service, incredible food, and a warm, inviting atmosphere, then Vic’s Italian Restaurant and Pizzeria should be at the top of your list.</p>
                 `,
-                https://github.com/Jakedavis26/capital-cravings/blob/main/reviews/Vic's%20Italian%20Restaurant%20and%20Pizzeria_%20City%20Market.pdf // Link to a PDF or other resource
+               link:reviews/Vic's%20Italian%20Restaurant%20and%20Pizzeria_%20City%20Market.pdf // Link to a PDF or other resource
             }
         ];
 
@@ -115,7 +115,7 @@
                         ${review.image ? `<img src="${review.image}" alt="${review.name}">` : ""}
                         <h3>${review.name}</h3>
                         ${review.review}
-                        <p><a href="${review.link}" target="_blank">Read Full Review (PDF)</a></p>
+                        <p><a href="${review.link}" target="_blank">Read Full Review</a></p>
                     </div>
                 `;
                 container.innerHTML += reviewElement;
