@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capital Cravings | Reviews</title>
+    <style>
+        body {
+            font-family: 'Georgia', serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f4f0;
+            color: #333;
+        }
+        header {
+            background-color: #8b0000;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background: #4a1a1a;
+            padding: 10px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 20px;
+            font-size: 18px;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+        nav a:hover {
+            color: #ffcc00;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            padding: 20px;
+            text-align: center;
+        }
+        .review {
+            background: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            text-align: left;
+        }
+        .review img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+        .review h3 {
+            color: #8b0000;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #8b0000;
+            color: white;
+            margin-top: 20px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        Capital Cravings - Local Favorites
+    </header>
+    <nav>
+          <a href="index.html">Home</a>
+        <a href="reviews.html">New Sights</a>
+        <a href="#">Top Picks</a>
+        <a href="local.html">Local Favorites</a>
+        <a href="#">Raleigh's Culinary Landscape</a>
+    </nav>
+    <div class="container">
+        <h2>Restaurants that have earned the title "An Oldie But A Goodie"</h2>
+        <div id="reviews-container">
+            <!-- Reviews will be added here dynamically -->
+        </div>
+    </div>
+    <footer>
+        &copy; 2025 Capital Cravings | Savoring Raleigh, One Bite at a Time
+    </footer>
+
+    <script>
+        // Sample reviews data
+        const reviews = [
+          {
+                name: "Vic's Italian Restaurant and Pizzeria: City Market",
+                image: "https://raw.githubusercontent.com/Jakedavis26/capital-cravings/main/Vics%20shot%202.jpg",  // Optional: You can add an image URL if needed
+                review: `
+                    <p>If you value great service, incredible food, and a warm, inviting atmosphere, then Vic’s Italian Restaurant and Pizzeria should be at the top of your list.</p>
+                `,
+               link:"reviews/Vic's%20Italian%20Restaurant%20and%20Pizzeria_%20City%20Market.pdf" // Link to a PDF or other resource
+            }
+        ];
+
+        // Function to dynamically add reviews
+        function displayReviews() {
+            const container = document.getElementById("reviews-container");
+            container.innerHTML = "";  // Clear previous content
+
+            reviews.forEach(review => {
+                const reviewElement = `
+                    <div class="review">
+                        ${review.image ? `<img src="${review.image}" alt="${review.name}">` : ""}
+                        <h3>${review.name}</h3>
+                        ${review.review}
+                        <p><a href="${review.link}" target="_blank">Read Full Review</a></p>
+                    </div>
+                `;
+                container.innerHTML += reviewElement;
+            });
+        }
+
+        // Load reviews when the page loads
+        document.addEventListener("DOMContentLoaded", displayReviews);
+    </script>
+
+</body>
+</html>
